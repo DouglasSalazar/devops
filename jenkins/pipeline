@@ -1,0 +1,39 @@
+pipeline {
+    agent {label 'slave'}
+
+    triggers {
+        githubPush()
+    }
+
+    environment {
+        ENVIRONMENT = credentials('ENVIRONMENT')        
+    }
+
+    stages {      
+        stage ('Clear') {
+            steps{
+                sh 'rm -rf .env .npmrc'
+                sh 'docker system prune -a -f'
+            }
+        }
+
+        stage ('Checkout') {
+            steps{
+                git branch: 'branch', 
+                url: 'https://github', 
+                credentialsId: 'credentialsId'
+            }
+        }
+
+        stage ('Config') {
+            steps {
+               config NPM, AWS
+            }
+        }
+
+        stage ('Docker image') {
+            steps {
+
+            }
+        }
+}
