@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+
+  node:
+      container_name: node
+      build:
+        context: .
+        dockerfile: Dockerfile
+      image: "node:lts"
+      user: "node"
+      working_dir: /usr/app
+      env_file: .env
+      environment:
+        - NODE_ENV=production
+      volumes:
+        - ./:/usr/app
+      ports:
+        - ${APP_PORT}:${APP_PORT}
+      expose:
+        - ${APP_PORT}
+      command: "npm start"
