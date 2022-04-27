@@ -1,8 +1,9 @@
-# Docker
+# Devops
 
-Este repositório contém alguns arquivos utíl referente ao Docker.
+Este repositório contém arquivos aplicados em alguns projetos.
 
-## Linguagens
+## Tecnologias
 * [Docker](https://www.docker.com/)
 * [Docker Compose](https://docs.docker.com/compose/)
 * [Docker Hub](https://hub.docker.com/)
+* [Jenkins](https://www.jenkins.io/)
