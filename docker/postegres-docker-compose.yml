@@ -28,7 +28,7 @@ services:
        - pgadmin:/root/.pgadmin
 
     ports:
-      - "${PGADMIN_PORT:-5050}:80"
+      - "${PGADMIN_PORT:-PGADMIN_PORT}:PGADMIN_PORT"
     networks:
       - default_network
     restart: always
